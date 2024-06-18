@@ -53,7 +53,7 @@ def send_message():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Satish Server's</title>
+    <title>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R's</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -152,7 +152,7 @@ def send_message():
         <div class="image-container">
             <img src="https://i.ibb.co/DCTvjsD/20240123-22658.jpg" alt="Image">
         </div>
-        <h1>Welcome to Satish Server's</h1>
+        <h1>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R's</h1>
         
         <!-- Menu -->
         <div class="menu">
