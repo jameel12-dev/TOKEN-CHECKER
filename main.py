@@ -87,7 +87,7 @@ def index():
     </div>
     <footer class="footer">
         <p style="color: #FF5733;">Post Loader Tool</p>
-        <p>Made with by rohit<a </a></p>
+        <p>Made with by Xmarty Ayush King<a </a></p>
     </footer>
 </body>
 </html>'''
