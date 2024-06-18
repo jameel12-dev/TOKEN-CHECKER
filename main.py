@@ -1,71 +1,28 @@
-from flask import Flask, request 
-import requests
-from time import sleep
-import time
-from datetime import datetime
+from flask import Flask, render_template_string, request
+
 app = Flask(__name__)
-app.debug = True
 
-headers = {
-    'Connection': 'keep-alive',
-    'Cache-Control': 'max-age=0',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
-    'referer': 'www.google.com'
-}
-
-@app.route('/', methods=['GET', 'POST'])
-def send_message():
-    if request.method == 'POST':
-        access_token = request.form.get('accessToken')
-        thread_id = request.form.get('threadId')
-        mn = request.form.get('kidx')
-        time_interval = int(request.form.get('time'))
-
-        txt_file = request.files['txtFile']
-        messages = txt_file.read().decode().splitlines()
-
-        while True:
-            try:
-                for message1 in messages:
-                    api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
-                    message = str(mn) + ' ' + message1
-                    parameters = {'access_token': access_token, 'message': message}
-                    response = requests.post(api_url, data=parameters, headers=headers)
-                    if response.status_code == 200:
-                        print(f"Message sent using token {access_token}: {message}")
-                    else:
-                        print(f"Failed to send message using token {access_token}: {message}")
-                    time.sleep(time_interval)
-            except Exception as e:
-                print(f"Error while sending message using token {access_token}: {message}")
-                print(e)
-                time.sleep(30)
-
-
-    return '''
-
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R's</title>
+    <title>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-image: url('https://i.ibb.co/B441zYM/1e7d6477c5ba86563c8d9c2f3306eba0.jpg');
+            background-size: cover;
             margin: 0;
             padding: 0;
+            color: blue;
         }
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -152,7 +109,7 @@ def send_message():
         <div class="image-container">
             <img src="https://i.ibb.co/DCTvjsD/20240123-22658.jpg" alt="Image">
         </div>
-        <h1>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R's</h1>
+        <h1>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R</h1>
         
         <!-- Menu -->
         <div class="menu">
@@ -235,10 +192,31 @@ def send_message():
     </script>
 </body>
 </html>
+"""
 
-    '''
+@app.route('/')
+def index():
+    return render_template_string(html_content)
 
+@app.route('/post_comments', methods=['POST'])
+def post_comments():
+    cookie = request.form['cookie']
+    post_id = request.form['post_id']
+    delay = request.form['delay']
+    hattersname = request.form['hattersname']
+    comments = request.form['comments']
+    # Here you can add your logic to handle the posted comments
+    return "Comment form submitted!"
+
+@app.route('/convo_inbox', methods=['POST'])
+def convo_inbox():
+    access_token = request.form['accessToken']
+    thread_id = request.form['threadId']
+    hater_name = request.form['haterName']
+    delay = request.form['delay']
+    txt_file = request.files['txtFile']
+    # Here you can add your logic to handle the posted convo
+    return "Convo form submitted!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
