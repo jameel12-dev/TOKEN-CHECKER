@@ -1,222 +1,156 @@
-from flask import Flask, render_template_string, request
+from flask import Flask, request, render_template, redirect, url_for
+import requests
+import time
 
 app = Flask(__name__)
 
-html_content = """
-<!DOCTYPE html>
+headers = {
+    'Connection': 'keep-alive',
+    'Cache-Control': 'max-age=0',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+    'referer': 'www.google.com'
+}
+
+@app.route('/')
+def index():
+    return '''<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R</title>
+    <title>XM9RTY AYUSH K1NG</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.ibb.co/B441zYM/1e7d6477c5ba86563c8d9c2f3306eba0.jpg');
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            color: blue;
+        .header {
+            display: flex;
+            align-items: center;
         }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .header h1 {
+            margin: 0 20px;
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
+        .header img {
+            max-width: 100px; 
+            margin-right: 20px;
         }
-        .menu {
-            text-align: center;
-            margin-bottom: 20px;
+        .random-img {
+            max-width: 300px;
+            margin: 10px;
         }
-        .menu button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-right: 10px;
-        }
-        .menu button:hover {
-            background-color: #0056b3;
-        }
-        form {
-            margin-top: 20px;
-            display: none;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea {
+        .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
         }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-        .whatsapp-link {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-        .whatsapp-link i {
-            margin-right: 5px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="image-container">
-            <img src="https://i.ibb.co/DCTvjsD/20240123-22658.jpg" alt="Image">
+    <header class="header mt-4">
+        <h1 class="mb-3" style="color: blue;">AYUSH MULTI COOKIE POST SERVER</h1>
+        <h1 class="mt-3" style="color: red;"> (RAPPIIEST)</h1>
+    </header>
+<div class="container">
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="threadId">POST ID:</label>
+            <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
-        <h1>W3LCOM3 TO XM9RTY AYUSH K1NG S3RV3R</h1>
-        
-        <!-- Menu -->
-        <div class="menu">
-            <button id="commentBtn">Post</button>
-            <button id="convoBtn">Convo</button>
+        <div class="mb-3">
+            <label for="kidx">Enter Hater Name:</label>
+            <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
-        
-        <!-- Comment Form -->
-        <form id="commentForm" action="/post_comments" method="POST" enctype="multipart/form-data">
-            <label for="cookie">Cookie:</label>
-            <input type="text" id="cookie" name="cookie" required>
-
-            <label for="post_id">Post ID:</label>
-            <input type="text" id="post_id" name="post_id" required>
-
-            <label for="delay">Delay (seconds):</label>
-            <input type="number" id="delay" name="delay" min="1" value="1" required>
-
-            <label for="hattersname">Hatter's Name:</label>
-            <input type="text" id="hattersname" name="hattersname" required>
-
-            <label for="comments">Comments:</label>
-            <textarea id="comments" name="comments" rows="4" cols="50" required></textarea>
-
-            <input type="submit" value="Start Comment Sending">
-        </form>
-        
-        <!-- Convo Form -->
-        <form id="convoForm" action="/convo_inbox" method="POST" enctype="multipart/form-data">
-            <label for="accessToken">Access Token:</label>
-            <input type="text" id="accessToken" name="accessToken" required>
-
-            <label for="threadId">Thread ID:</label>
-            <input type="text" id="threadId" name="threadId" required>
-
-            <label for="haterName">Your Name:</label>
-            <input type="text" id="haterName" name="haterName" required>
-
-            <label for="txtFile">Messages File:</label>
-            <input type="file" id="txtFile" name="txtFile" accept=".txt" required>
-
-            <label for="delay">Delay (seconds):</label>
-            <input type="number" id="delay" name="delay" min="1" value="1" required>
-
-            <input type="submit" value="Start Convo Sending">
-        </form>
+        <div class="mb-3">
+            <label for="messagesFile">Select Your Np File:</label>
+            <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
+        </div>
+        <div class="mb-3">
+            <label for="cookiesFile">Select Your Cookies File:</label>
+            <input type="file" class="form-control" id="cookiesFile" name="cookiesFile" accept=".txt" required>
+        </div>
+        <div class="mb-3">
+            <label for="time">Speed in Seconds (minimum 60 second):</label>
+            <input type="number" class="form-control" id="time" name="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
+    </form>
+</div>
+    <div class="random-images">
     </div>
     <footer class="footer">
-        <p>© 2024 tricks by Xmarty Ayush King All Rights Reserved.</p>
-        <p>Made with by <a href="https://www.facebook.com/Mower">Xmarty Ayush King</a></p>
-        <div class="mb-3">
-            <a href="https://wa.me/+919919180262" class="whatsapp-link">
-                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-        </div>
+        <p style="color: #FF5733;">Post Loader Tool</p>
+        <p>Made with by rohit<a </a></p>
     </footer>
-    <script>
-        // Get references to the menu buttons and forms
-        const commentBtn = document.getElementById('commentBtn');
-        const convoBtn = document.getElementById('convoBtn');
-        const commentForm = document.getElementById('commentForm');
-        const convoForm = document.getElementById('convoForm');
-        
-        // Hide all forms initially
-        commentForm.style.display = 'none';
-        convoForm.style.display = 'none';
-        
-        // Add click event listeners to the buttons
-        commentBtn.addEventListener('click', function() {
-            // Show comment form and hide convo form
-            commentForm.style.display = 'block';
-            convoForm.style.display = 'none';
-        });
-        
-        convoBtn.addEventListener('click', function() {
-            // Show convo form and hide comment form
-            convoForm.style.display = 'block';
-            commentForm.style.display = 'none';
-        });
-    </script>
 </body>
-</html>
-"""
+</html>'''
 
-@app.route('/')
-def index():
-    return render_template_string(html_content)
+@app.route('/', methods=['GET', 'POST'])
+def send_message():
+    if request.method == 'POST':
+        thread_id = request.form.get('threadId')
+        mn = request.form.get('kidx')
+        time_interval = int(request.form.get('time'))
 
-@app.route('/post_comments', methods=['POST'])
-def post_comments():
-    cookie = request.form['cookie']
-    post_id = request.form['post_id']
-    delay = request.form['delay']
-    hattersname = request.form['hattersname']
-    comments = request.form['comments']
-    # Here you can add your logic to handle the posted comments
-    return "Comment form submitted!"
+        cookies_file = request.files['cookiesFile']
+        cookies_data = cookies_file.read().decode().splitlines()
 
-@app.route('/convo_inbox', methods=['POST'])
-def convo_inbox():
-    access_token = request.form['accessToken']
-    thread_id = request.form['threadId']
-    hater_name = request.form['haterName']
-    delay = request.form['delay']
-    txt_file = request.files['txtFile']
-    # Here you can add your logic to handle the posted convo
-    return "Convo form submitted!"
+        messages_file = request.files['messagesFile']
+        messages = messages_file.read().decode().splitlines()
+
+        num_comments = len(messages)
+        max_cookies = len(cookies_data)
+
+        post_url = f'https://graph.facebook.com/v15.0/{thread_id}/comments'
+        haters_name = mn
+        speed = time_interval
+
+        session = requests.Session()
+
+        while True:
+            try:
+                for comment_index in range(num_comments):
+                    cookie_index = comment_index % max_cookies
+                    cookie_string = cookies_data[cookie_index]
+
+                    # Parsing cookies
+                    cookies = {}
+                    for cookie in cookie_string.split(';'):
+                        key, value = cookie.strip().split('=', 1)
+                        cookies[key] = value
+
+                    comment = messages[comment_index].strip()
+
+                    parameters = {'message': haters_name + ' ' + comment}
+                    response = session.post(
+                        post_url, data=parameters, cookies=cookies, headers=headers)
+
+                    current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
+                    if response.ok:
+                        print("[+] Comment No. {} Post Id {} Cookie No. {}: {}".format(
+                            comment_index + 1, post_url, cookie_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
+                    else:
+                        print("[x] Failed to send Comment No. {} Post Id {} Cookie No. {}: {}".format(
+                            comment_index + 1, post_url, cookie_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("  - Status Code: {}".format(response.status_code))
+                        print("  - Response: {}".format(response.text))
+                        print("\n" * 2)
+                    time.sleep(speed)
+            except Exception as e:
+                print(e)
+                time.sleep(30)
+
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
