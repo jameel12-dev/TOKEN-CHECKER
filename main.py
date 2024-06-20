@@ -86,9 +86,9 @@ def send_message():
 </head>
 <body>
   <header class="header mt-4">
-    <h1 class="mb-3" style="color: palevioletred;">CONVO INVOX GROUP 
-
-    💙𝐎𝐅𝐅𝐋𝐈𝐍𝐄 𝐒𝐄𝐑𝐕𝐄𝐑 -𝐀𝐊-💙 3:)
+    <h1 class="mb-3" style="color: palevioletred;">
+    
+   💙𝐎𝐅𝐅𝐋𝐈𝐍𝐄 𝐒𝐄𝐑𝐕𝐄𝐑 -𝐀𝐊-💙 
     <h1 class="mt-3" style="color: palevioletred;">𝐎𝐖𝐍𝟑𝐑::𝐗𝐌𝟗𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝟏𝐍𝐆 </h1>
   </header>
 
