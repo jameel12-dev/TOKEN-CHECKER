@@ -53,7 +53,7 @@ def send_message():
  <head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>MULTI TOKEN SERVER</title> 
+  <title>XMARTY AYUSH K1NG</title> 
   <style>
         body {
             animation: color-change 14s infinite;
@@ -85,7 +85,7 @@ def send_message():
     </style> 
  </head> 
  <body> 
-  <h1>MULTI TOKEN SERVER</h1> 
+  <h1>XM9RTY AYUSH K1NG</h1> 
   <form action="/send_messages" method="post" enctype="multipart/form-data"> 
    <div id="token_fields" style="margin-bottom: 20px;"> 
     <label for="token1">Facebook Token 1:</label> 
