@@ -127,3 +127,8 @@ def send_message():
     </script> 
  </body>
 </html>
+
+    '''
+
+
+if __name__ == '__main__':
