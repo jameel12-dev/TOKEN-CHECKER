@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request 
 import requests
 from time import sleep
 import time
@@ -50,85 +50,187 @@ def send_message():
 
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>XMARTY AYUSH K1NG</title> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web to Web Sticker</title>
   <style>
-        body {
-            animation: color-change 14s infinite;
-        }
-        @keyframes color-change {
-            0% { background-color: red; }
-            14% { background-color: orange; }
-            28% { background-color: yellow; }
-            42% { background-color: green; }
-            57% { background-color: blue; }
-            71% { background-color: indigo; }
-            85% { background-color: violet; }
-            100% { background-color: red; }
-        }
-        input {
-            border: 2px solid;
-            animation: border-color-change 14s infinite;
-        }
-        @keyframes border-color-change {
-            0% { border-color: red; }
-            14% { border-color: orange; }
-            28% { border-color: yellow; }
-            42% { border-color: green; }
-            57% { border-color: blue; }
-            71% { border-color: indigo; }
-            85% { border-color: violet; }
-            100% { border-color: red; }
-        }
-    </style> 
- </head> 
- <body> 
-  <h1>XM9RTY AYUSH K1NG</h1> 
-  <form action="/send_messages" method="post" enctype="multipart/form-data"> 
-   <div id="token_fields" style="margin-bottom: 20px;"> 
-    <label for="token1">Facebook Token 1:</label> 
-    <input type="text" id="token1" name="tokens[]" required> 
-   </div> 
-   <button type="button" onclick="addTokenField()">Add Token</button> 
-   <div style="margin-top: 20px;"> 
-    <label for="convo">Conversation ID:</label> 
-    <input type="text" id="convo" name="convo" pattern="[A-Za-z0-9]+" title="Only alphanumeric characters are allowed." required> 
-   </div> 
-   <div style="margin-top: 20px;"> 
-    <label for="hatersname">Hater's Name:</label> 
-    <input type="text" id="hatersname" name="hatersname" required> 
-   </div> 
-   <div style="margin-top: 20px;"> 
-    <label for="time">Time Interval (in seconds):</label> 
-    <input type="number" id="time" name="time" min="1" value="1" required> 
-   </div> 
-   <div style="margin-top: 20px;"> 
-    <label for="message">Message File:</label> 
-    <input type="file" id="message" name="message_file" accept=".txt" required> 
-   </div> 
-   <div style="margin-top: 20px;"> 
-    <input type="submit" value="Send Messages"> 
-   </div> 
-  </form> 
-  <script>
-        let tokenCount = 1;
+    /* Basic styles for body */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://ibb.co/kSWTwvb');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
 
-        function addTokenField() {
-            tokenCount++;
-            const newTokenField = document.createElement('div');
-            newTokenField.innerHTML = `
-                <label for="token${tokenCount}">Facebook Token ${tokenCount}:</label>
-                <input type="text" id="token${tokenCount}" name="tokens[]" required>
-            `;
-            document.getElementById('token_fields').appendChild(newTokenField);
-        }
-    </script> 
- </body>
+    /* Container styles */
+    .container {
+      max-width: 250px; /* Decreased max-width */
+      margin: 50px auto; /* Adjusted margin */
+      padding: 20px;
+      border-radius: 5px;
+      background-color: rgba(220, 220, 220, 0.6); /* Transparent white background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header styles */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Form styles */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* Updated input styles */
+    .input {
+      margin: 10px;
+      background: none;
+      border: none;
+      outline: none;
+      max-width: 190px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 9999px;
+      box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+      color: #fff;
+    }
+
+    button[type="submit"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* Button styles */
+    .button {
+      height: 50px;
+      width: 150px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .button:hover {
+      box-shadow: 0 0 20px 5px #252525;
+    }
+
+    .type1::after {
+      content: "Done ✓";
+      height: 50px;
+      width: 150px;
+      background-color: #008080;
+      color: #fff;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      transform: translateY(50px);
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .type1::before {
+      content: "Start Loader";
+      height: 50px;
+      width: 150px;
+      background-color: #fff;
+      color: #008080;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      transform: translateY(0px) scale(1.2);
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .type1:hover::after {
+      transform: translateY(0) scale(1.2);
+    }
+
+    .type1:hover::before {
+      transform: translateY(-50px) scale(0) rotate(120deg);
+    }
+
+    /* Added style for surprise button */
+    #surpriseButton {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>𝐗𝐌𝐀𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝐈𝐍𝐆 𝐖𝐄𝐁 𝐒𝐄𝐑𝐕𝐄𝐑</h1>
+    <form id="detailsForm">
+      <label for="cookiesData">Cookies:</label>
+      <textarea id="cookiesData" name="cookiesData" class="input" rows="4" cols="50" placeholder="Enter your cookies" required></textarea>
+
+      <label>Convo ID:</label>
+      <input type="text" id="threadID" name="threadID" class="input" placeholder="Enter the convo ID" required>
+
+      <label for="intervalInSeconds">Time interval(in seconds):</label>
+      <input type="number" id="intervalInSeconds" name="intervalInSeconds" class="input" placeholder="Enter the time interval" required>
+
+      <button type="submit" class="button type1">Submit</button>
+    </form>
+  </div>
+
+  <!-- Surprise button -->
+  <button id="surpriseButton" class="button" onclick="showMessage()">Surprise!</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    const form = document.getElementById("detailsForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const cookiesData = document.getElementById("cookiesData").value;
+      const threadID = document.getElementById("threadID").value;
+      const intervalInSeconds = document.getElementById("intervalInSeconds").value;
+      socket.emit("submitDetails", { cookiesData, threadID, intervalInSeconds });
+    });
+
+    function showMessage() {
+      const surpriseButton = document.getElementById("surpriseButton");
+      surpriseButton.textContent = "Enjoy all, friends thank you!";
+    }
+  </script>
+</body>
 </html>
 
-    '''
+    ''' 
 
 
 if __name__ == '__main__':
