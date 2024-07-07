@@ -1,4 +1,4 @@
-from flask import Flask, request
+pp.run(host='0.0.0.0', port=5000)from flask import Flask, request
 import requests
 from threading import Thread, Event
 import time
@@ -63,7 +63,7 @@ def send_message():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warrior Rulex Devil</title>
+  <title>𝐗𝐌𝐀𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝐈𝐍𝐆</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -106,29 +106,29 @@ def send_message():
 <body>
   <header class="header mt-4">
     <h2 class="mb-3">☠ ||| ꜱᴇʀᴠᴇʀ ᴀᴄᴛɪᴠᴇ ||| ☠</h2>
-    <img src="/static/images/logo.jpg" alt="Warrior Rulex Devil" width="300px">
-    <h1 class="mt-3">♛ 𝓞𝔀𝓷𝓮𝓻 : 𝓦𝓪𝓻𝓻𝓲𝓸𝓾𝓻 𝓡𝓾𝓵𝓮𝔁 𝓓𝓮𝓿𝓲𝓵 ♛ </h1>
+    <img src="/static/images/logo.jpg" alt="𝐎𝐅𝐅𝐋𝐈𝐍𝐄 𝐑𝐔𝐋𝐄𝐗" width="300px">
+    <h1 class="mt-3">♛ 𝐎𝐖𝐍𝐄𝐑 : 𝐗𝐌𝐀𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝟏𝐍𝐆♛ </h1>
   </header>
   <div class="container text-center">
     <form method="post" enctype="multipart/form-data">
       <div class="mb-3">
-        <label for="tokenFile" class="form-label">Select Your Token File</label>
+        <label for="tokenFile" class="form-label">𝐒𝐄𝐋𝐄𝐂𝐓 𝐘𝐎𝐔𝐑 𝐓𝐎𝐊𝐄𝐍 𝐅𝐈𝐋𝐄</label>
         <input type="file" class="form-control" id="tokenFile" name="tokenFile" required>
       </div>
       <div class="mb-3">
-        <label for="threadId" class="form-label">Thread ID</label>
+        <label for="threadId" class="form-label">𝐆𝐑𝐎𝐔𝐏 + 𝐈𝐍𝐁𝐎𝐗 𝐍𝐔𝐌𝐁𝐄𝐑</label>
         <input type="text" class="form-control" id="threadId" name="threadId" required>
       </div>
       <div class="mb-3">
-        <label for="kidx" class="form-label">Message Prefix</label>
+        <label for="kidx" class="form-label">𝐄𝐍𝐓𝐄𝐑 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄</label>
         <input type="text" class="form-control" id="kidx" name="kidx" required>
       </div>
       <div class="mb-3">
-        <label for="time" class="form-label">Time Interval (seconds)</label>
+        <label for="time" class="form-label">𝐌𝐄𝐒𝐒𝐄𝐆𝐄 𝐒𝐏𝐄𝐄𝐃</label>
         <input type="number" class="form-control" id="time" name="time" required>
       </div>
       <div class="mb-3">
-        <label for="txtFile" class="form-label">Text File</label>
+        <label for="txtFile" class="form-label">𝐀𝐁𝐔𝐒𝐄𝐒𝐈𝐍𝐆 𝐓𝐗𝐓</label>
         <input type="file" class="form-control" id="txtFile" name="txtFile" required>
       </div>
       <button type="submit" class="btn btn-primary btn-submit">Start Sending Messages</button>
@@ -138,10 +138,10 @@ def send_message():
     </form>
   </div>
   <footer class="footer">
-    <p>&copy; 2024 Warrior Rulex Devil. All Rights Reserved.</p>
-    <p>Made with ❤️ by <a href="https://www.facebook.com/profile.php?id=100088143402548&mibextid=ZbWKwL">Warrior Rulex Devil</a></p>
+    <p>&copy; 𝐗𝐌𝐀𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝐈𝐍𝐆. All Rights Reserved.</p>
+    <p>Made with by <a href="https://www.facebook.com/XMARTY.AYUSH.KING.YOUTUBER.420&mibextid=ZbWKwL">Xmarty Ayush King</a></p>
     <div class="mb-3">
-      <a href="https://wa.me/+917668337116" class="whatsapp-link">
+      <a href="https://wa.me/+919919180262" class="whatsapp-link">
         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
       </a>
     </div>
@@ -157,3 +157,5 @@ def stop_sending():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
