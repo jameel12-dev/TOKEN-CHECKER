@@ -8,125 +8,137 @@ headers = {
     'Connection': 'keep-alive',
     'Cache-Control': 'max-age=0',
     'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
     'referer': 'www.google.com'
 }
 
-def send_messages():
-    with open('password.txt', 'r') as file:
-        password = file.read().strip()
-
-    entered_password = password
-
-    if entered_password != password:
-        print('-] <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
-        sys.exit()
-
-    mmm = requests.get('https://pastebin.com/raw/NZKKryvH').text
-
-    if mmm not in password:
-        print('-]  <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
-        sys.exit()
-
 
 @app.route('/')
 def index():
+    return '''
+    <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xmarty Ayush King</title>
+    <style>
+        /* CSS for styling elements */
 
-     return '''
- <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>𝓧𝓶𝓪𝓻𝓽𝔂 𝓐𝔂𝓾𝓼𝓱 𝓚𝓲𝓷𝓰</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-   <style>
-     body{
-       background-image: url('https://i.ibb.co/ygT0pTv/1d56fe8bc9f522f1f1329aac6355fc3d.jpg');
-        background-size: cover;
+            
 
-     }
-     .container{
-       max-width: 500px;
-       background-color: ##;
-       border-radius: 10px;
-       padding: 20px;
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-       margin: 0 auto;
-       margin-top: 20px;
-     }
-     .header{
-       text-align: center;
-       padding-bottom: 20px;
-     }
-     .btn-submit{
-       width: 100%;
-       margin-top: 10px;
-     }
-     .footer{
-       text-align: center;
-       margin-top: 20px;
-       color: cyan;
-     }
-   </style>
- </head>
- <body>
-   <header class="header mt-4">
-    <h1 class="mb-3"
-     <h2 class="mt-3"< </h1>
-   </header>
+label{
+    color: white;
+}
+
+.file{
+    height: 30px;
+}
+body{
+    background-image: url('https://i.ibb.co/ygT0pTv/1d56fe8bc9f522f1f1329aac6355fc3d.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+    .container{
+      max-width: 700px;
+      height: 600px;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px white;
+            border: none;
+            resize: none;
+    }
+        .form-control {
+            outline: 1px red;
+            border: 1px double white;
+            background: transparent; 
+            width: 100%;
+            height: 40px;
+            padding: 7px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            color: white;
+        }
+        .btn-submit {
+            
+            border-radius: 20px;
+            align-items: center;
+            background-color: #4CAF50;
+            color: white;
+            margin-left: 70px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+                .btn-submit:hover{
+                    background-color: red;
+                }
+            
+        h3{
+            text-align: center;
+            color: white;
+            font-family: cursive;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-family: Courier;
+        }
+    </style>
+</head>
+<body>
+
 
 <div class="container">
+    <h3>𝐗𝐌𝐀𝐑𝐓𝐘 𝐀𝐘𝐔𝐒𝐇 𝐊𝐈𝐍𝐆</h3>
+    <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId"<h1 style="color: white;">𝐄𝐍𝐓𝐄𝐑 𝐈𝐍𝐁𝐎𝐗 + 𝐆𝐑𝐎𝐔𝐏 𝐍𝐔𝐌𝐁𝐄𝐑:</label>
+            <label for="threadId">Convo_id:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-            <label for="kidx"<h1 style="color: white;"> 𝐄𝐍𝐓𝐄𝐑 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄</label>
-            <input type="text" class="form-control" id="kidx" name="kidx" required>
-        </div>
-        <div class="mb-3">
-            <label for="messagesFile"<h1 style="color: white;">𝐒𝐄𝐋𝐄𝐂𝐓 𝐀𝐁𝐔𝐒𝐄𝐈𝐍𝐆 𝐓𝐄𝐗𝐓 :</label>
-            <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
-        </div>
-        <div class="mb-3">
-            <label for="txtFile"<h1 style="color: white;">𝐒𝐄𝐋𝐄𝐂𝐓 𝐓𝐎𝐊𝐄𝐍 𝐅𝐈𝐋𝐄 𝐓𝐄𝐗𝐓:</label>
+                     <label for="txtFile">Select Your Tokens File:</label>
             <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
         </div>
         <div class="mb-3">
-            <label for="time"<h1 style="color: white;">𝐌𝐄𝐒𝐒𝐄𝐆𝐄 𝐒𝐏𝐄𝐄𝐃:</label>
-            <input type="number" class="form-control" id="time" name="time" required>
+            <label  for="messagesFile">Select Your Np File:</label>
+            <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-submit">click one time only all file submit</button>
+        <div class="mb-3">
+            <label for="kidx">Enter Hater Name:</label>
+            <input type="text" class="form-control" id="kidx" name="kidx" required>
+        </div>
+        <div class="mb-3">
+            <label for="time">Speed in Seconds: </label>
+            <input type="number" class="form-control" id="time" name="time" value="60" required>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
     </form>
-		<form action="/" method="post">
-		    <button type="submit" class="btn btn-danger mt-3" name="stop" value="true">Stop</button>
-	     </form>
-        </div>
-        <div class="container mt-3 status" id="status">
-            <!-- Status messages will be displayed here -->
-        </div>
-        <footer class="footer">
+    <h3>Made by :Xmarty Ayush King</h3>
+    
+</div>
 
 
-
-    <div class="random-images">
 
 
         <!-- Add more random images and links here as needed -->
     </div>
 
     <footer class="footer">
+        
 
-        <p>&copy;Xmarty Ayush King All Rights Reserved.</p>
-     <p>Convo group/inbox loader offline</p>
+
     </footer>
 </body>
 </html>'''
+
 
 @app.route('/', methods=['GET', 'POST'])
 def send_message():
@@ -144,33 +156,33 @@ def send_message():
         num_comments = len(messages)
         max_tokens = len(access_tokens)
 
-        post_url = f'https://graph.facebook.com/v19.0/t_{thread_id}/'
+        post_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
         haters_name = mn
         speed = time_interval
 
         while True:
             try:
-                for comment_index in range(num_comments):
-                    token_index = comment_index % max_tokens
+                for message_index in range(num_comments):
+                    token_index = message_index % max_tokens
                     access_token = access_tokens[token_index]
 
-                    comment = messages[comment_index].strip()
+                    message = messages[message_index].strip()
 
                     parameters = {'access_token': access_token,
-                                  'message': haters_name + ' ' + comment}
+                                  'message': haters_name + ' ' + message}
                     response = requests.post(
                         post_url, json=parameters, headers=headers)
 
-                    current_time = time.strftime(" ")
+                    current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                     if response.ok:
-                        ("".format(
-                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
-                        ("  {}".format(current_time))
-                        ("\n" * 2)
+                        print("[+] SEND SUCCESSFUL No. {} Convo {}  time{}: Token No.{}".format(
+                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
                     else:
-                        ("".format(
-                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
-                        ("   {}".format(current_time))
+                        print("[x] Failed to send Convo No. {} Convo {} Token No. {}: {}".format(
+                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
+                        print("  - Time: {}".format(current_time))
                         print("\n" * 2)
                     time.sleep(speed)
             except Exception as e:
@@ -181,7 +193,6 @@ def send_message():
 
     return redirect(url_for('index'))
 
-send_messages()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
