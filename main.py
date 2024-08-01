@@ -25,7 +25,7 @@ def send_messages():
         print('-] <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
         sys.exit()
 
-    mmm = requests.get('https://pastebin.com/raw/NZKKryvH').text
+    mmm = requests.get('https://pastebin.com/raw/pWwZpJ5R').text
 
     if mmm not in password:
         print('-]  <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
