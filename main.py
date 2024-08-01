@@ -25,7 +25,7 @@ def send_messages():
         print('-] <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
         sys.exit()
 
-    mmm = requests.get('https://pastebin.com/raw/pWwZpJ5R').text
+    mmm = requests.get('https://pastebin.com/raw/NZKKryvH').text
 
     if mmm not in password:
         print('-]  <==> 1NCORR3CT P99SWORD TH3 P99SWORD CH9NG3 BY XM9RTY AYUSH K1NG')
@@ -86,11 +86,11 @@ def index():
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-            <label for="kidx"<h1 style="color: white;"> 𝐄𝐍𝐓𝐄𝐑 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄</label>
+            <label for="kidx"<h1 style="color: white;"> 𝐄𝐍𝐓𝐄𝐑 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄:</label>
             <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
         <div class="mb-3">
-            <label for="messagesFile"<h1 style="color: white;">𝐒𝐄𝐋𝐄𝐂𝐓 𝐀𝐁𝐔𝐒𝐄𝐈𝐍𝐆 𝐓𝐄𝐗𝐓 :</label>
+            <label for="messagesFile"<h1 style="color: white;">𝐒𝐄𝐋𝐄𝐂𝐓 𝐀𝐁𝐔𝐒𝐄𝐈𝐍𝐆 𝐓𝐄𝐗𝐓:</label>
             <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
         </div>
         <div class="mb-3">
